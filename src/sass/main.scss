@@ -1,7 +1,83 @@
-/*
- * Главный файл стилей.
- * Все паршалы подключаются сюда.
- */
-
-// Стили для файла с примером HTML-фрагмента
 @import './example';
+body {
+  height: 100vh;
+  background-image: linear-gradient(
+      90deg,
+      rgba(58, 51, 167, 1.403799) 0%,
+      rgba(77, 22, 58, 0.8) 35%,
+      rgba(125, 123, 232, 0.4) 100%
+    ),
+    url(../images/map.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+ul {
+  list-style: none;
+}
+img {
+  display: block;
+  width: 200px;
+}
+.main {
+  padding-top: 30px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.input {
+  margin-bottom: 60px;
+  padding: 15px;
+  max-width: 600px;
+  min-width: 300px;
+  border-radius: 50px;
+  outline: none;
+}
+.card {
+  &__title {
+    font-size: 48px;
+    color: #cce5ea;
+  }
+  &__list {
+    text-align: left;
+  }
+  &__item {
+    color: #f0f5e9;
+    font-size: 26px;
+    &--color {
+      color: #54e2ff;
+    }
+    &--style {
+      padding-left: 110px;
+      list-style: disc;
+    }
+  }
+  &__name {
+    margin: 0 auto;
+    max-width: 485px;
+  }
+  &__flex {
+    display: flex;
+    justify-content: center;
+    img {
+      margin-left: 30px;
+    }
+  }
+}
+
+.card__full {
+  animation-name: show;
+  animation-duration: 1500ms;
+  animation-timing-function: linear;
+}
+@keyframes show {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+.brighttheme-text {
+  overflow: hidden;
+}
