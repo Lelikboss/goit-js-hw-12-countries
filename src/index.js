@@ -1,5 +1,5 @@
 import './sass/main.scss';
-import fetchCountries from './fetchCountries.js';
+import fetchCountries from './js/fetchCountries.js';
 import debounce from 'lodash.debounce';
 // import axios from 'axios';  //! с помощью стороней биб-ки
 import { alert } from '../node_modules/@pnotify/core/dist/PNotify.js';
