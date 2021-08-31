@@ -1,6 +1,7 @@
 import './sass/main.scss';
+import fetchCountries from './fetchCountries.js';
 import debounce from 'lodash.debounce';
-import axios from 'axios';
+// import axios from 'axios';  //! с помощью стороней биб-ки
 import { alert } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import '../node_modules/@pnotify/core/dist/BrightTheme.css';
 import '../node_modules/@pnotify/core/dist/Material.css';
@@ -11,16 +12,25 @@ const refs = {
 };
 
 refs.inputEl.addEventListener('input', debounce(onInputChange, 500));
+
 function onInputChange(e) {
   e.preventDefault();
   destroyContent();
-
   const value = refs.inputEl.value;
-  axios
-    .get(`https://restcountries.eu/rest/v2/name/${value}`)
-    .then(result => creatItem(result.data))
-    .catch(err => console.log(err));
+  fetchCountries(value)
+    .then(data => creatItem(data))
+    .catch(error => console.log(error));
 }
+
+// function onInputChange(e) {
+//   e.preventDefault();
+//   destroyContent();
+//   const value = refs.inputEl.value;
+//   axios
+//     .get(`https://restcountries.eu/rest/v2/name/${value}`)
+//     .then(result => creatItem(result.data))
+//     .catch(err => console.log(err));
+// }  //! с помощью стороней биб-ки
 
 const creatItem = e => {
   const value = e.length;
